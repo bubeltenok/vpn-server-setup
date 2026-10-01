@@ -23,8 +23,6 @@ fi
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak.$(date +%s)
 
 echo -e "${YELLOW}[1/5] Отключаем вход под root...${NC}"
-# Root — это бог. Если брутфорсер угадает пароль рута — он получит всё.
-# Лучше создать обычного пользователя и давать ему sudo.
 sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 
 echo -e "${YELLOW}[2/5] Отключаем парольную аутентификацию...${NC}"
